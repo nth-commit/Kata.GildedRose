@@ -3,7 +3,7 @@ using Xunit;
 
 namespace csharpcore.Tests.AboutSpecificItems
 {
-    public class AboutSulfurasQuality
+    public class AboutSulfuras
     {
         public class SulfurasAttribute : GenAttribute
         {

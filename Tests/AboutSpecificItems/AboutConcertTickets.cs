@@ -6,14 +6,7 @@ namespace csharpcore.Tests.AboutSpecificItems
     public class AboutConcertTickets
     {
         [Property]
-        public IGen<Test> SellInDecrements() =>
-            from initial in DomainGen.ConcertTickets()
-            select Property.ForThese(() =>
-            {
-                var result = TestProxy.UpdateQuality(initial);
-
-                Assert.Equal(initial.SellIn - 1, result.SellIn);
-            });
+        public Property SellInDecrements() => Properties.SellInDecrements(DomainGen.ConcertTickets());
 
         [Property]
         public IGen<Test> IfConcertIsMoreThan10DaysInFuture_QualityIncreasesByOne() =>

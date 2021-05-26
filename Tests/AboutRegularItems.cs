@@ -3,17 +3,10 @@ using Xunit;
 
 namespace csharpcore.Tests
 {
-    public class AboutRegularItemQuality
+    public class AboutRegularItems
     {
         [Property]
-        public IGen<Test> SellInDecrements() =>
-            from initial in DomainGen.RegularItem()
-            select Property.ForThese(() =>
-            {
-                var result = TestProxy.UpdateQuality(initial);
-
-                Assert.Equal(initial.SellIn - 1, result.SellIn);
-            });
+        public Property SellInDecrements() => Properties.SellInDecrements(DomainGen.RegularItem());
 
         [Property]
         public IGen<Test> IfSellInIsFuture_ItDegradesByOne() =>
